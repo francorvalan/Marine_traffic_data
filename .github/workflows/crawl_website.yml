@@ -26,11 +26,7 @@ jobs:
       with:
         python-version: '3.x'
     
-    - name: autocomit
-      uses: stefanzweifel/git-auto-commit-action@v5
-      with:
-        commit_message: Changed files
-        push_options: '--force'
+
     - name: Instalar dependencias
       run: |
         python -m pip install setuptools
@@ -40,3 +36,13 @@ jobs:
     - name: Ejecutar script Python
       run: |
         python Download_data.py
+    - name: Commit de los cambios en el repositorio
+      run: |
+        git add .
+        git commit -m "sitio web generado con último valor estimado de turbidez"
+        git push origin main
+    - name: autocomit
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: Changed files
+        push_options: '--force'
