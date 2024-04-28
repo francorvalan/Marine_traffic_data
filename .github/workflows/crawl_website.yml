@@ -36,11 +36,15 @@ jobs:
     - name: Ejecutar script Python
       run: |
         python Download_data.py
-    # - name: Commit de los cambios en el repositorio
-    #   run: |
-    #     git add .
-    #     git commit -m "sitio web generado con último valor estimado de turbidez"
-    #     git push origin main
+
+    - name:  Commit de los cambios en el repositorio
+      run: |  
+        git config --global user.email "francisco.corvalan6@gmail.com"
+        git config --global user.name "francorvalan"
+        git add .
+        git commit -m "sitio web generado con último valor estimado de turbidez"
+        git push origin main
+        
     - name: autocomit
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
