@@ -1,9 +1,18 @@
 name: Ejecutar script cada 20 minutos
 
 on:
+  # Ejecutar cada 20 minutos
   schedule:
     - cron: '*/20 * * * *'
 
+  # Ejecutar en push events
+  push:
+    branches: [ main ]
+
+  # Ejecutar en pull request events
+  pull_request:
+    types: [opened, synchronize]
+    
 jobs:
   ejecutar-script:
     runs-on: ubuntu-latest
