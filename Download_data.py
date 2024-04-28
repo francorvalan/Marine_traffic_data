@@ -22,18 +22,18 @@ def guardar_como_json(url):
         # Obtener el contenido JSON
         datos_json = respuesta.json()
         
-        # Guardar los datos JSON en un archivo
-        with open(output_file_A, 'w') as archivo:
-            json.dump(datos_json, archivo, indent=4)
+        # # Guardar los datos JSON en un archivo
+        # with open(output_file_A, 'w') as archivo:
+        #     json.dump(datos_json, archivo, indent=4)
             
         print(f"Los datos se han guardado correctamente en '{output_file_A}'.")
         # Guardar los datos JSON en un archivo
         with open(output_file_B, 'w') as archivo:
             json.dump(datos_json, archivo, indent=4)
         
-        # Guardar los datos JSON en un archivo
-        with open(nombre_archivo, 'w') as archivo:
-            json.dump(datos_json, archivo, indent=4)
+        # # Guardar los datos JSON en un archivo
+        # with open(nombre_archivo, 'w') as archivo:
+        #     json.dump(datos_json, archivo, indent=4)
             
         print(f"Los datos se han guardado correctamente en '{output_file_B}'.")
     else:
