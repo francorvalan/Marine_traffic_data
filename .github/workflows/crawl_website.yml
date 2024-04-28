@@ -1,24 +1,17 @@
-name: Crawl Website and Save as JSON
+name: Ejecutar script cada 20 minutos
 
 on:
-  push:
-  workflow_dispatch:
   schedule:
-    - cron:  '6,26,46 * * * *' # every twenty minutes
+    - cron: '*/20 * * * *'
+
 jobs:
-  crawl_and_save:
+  ejecutar-script:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repository
+    - name: Checkout del código
       uses: actions/checkout@v2
 
-    - name: Install Dependencies
+    - name: Ejecutar script Python
       run: |
-        sudo apt-get update
-        sudo apt-get install -y python3 python3-pip
-        pip3 install requests
-
-    - name: Crawl Website and Save as JSON
-      run: |
-        python3 crawl_and_save.py  # Aquí deberás escribir el script para acceder a la página y guardar el contenido como JSON
+        python Download_data.py
