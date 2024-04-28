@@ -2,9 +2,9 @@ name: Crawl Website and Save as JSON
 
 on:
   push:
-    branches:
-      - main  # Cambia 'main' al nombre de tu rama principal si es diferente
-
+  workflow_dispatch:
+  schedule:
+    - cron:  '6,26,46 * * * *' # every twenty minutes
 jobs:
   crawl_and_save:
     runs-on: ubuntu-latest
