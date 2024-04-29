@@ -1,5 +1,5 @@
 requests==2.26.0
-numpy==1.21.0
+numpy==1.26.4
 setuptools>=50.0.0
 pandas==  2.2.2
 geopandas==0.14.4
