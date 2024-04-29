@@ -41,12 +41,12 @@ def descargar_procesar_convertir(url_list):
     gdf = gpd.GeoDataFrame(dfs, geometry=geometry, crs="EPSG:4326")
 
     # Escribir el GeoDataFrame en un archivo con nombre dependiente de la fecha
-    gdf_outputdir = "01_Data/01_Shapefiles"
+    gdf_outputdir = "./01_Data/01_Prince_Ruport_Area/01_Shapefiles"
     if not os.path.exists(gdf_outputdir): os.makedirs(gdf_outputdir)
     output_file = f"{gdf_outputdir}/{fecha_actual.strftime('%Y%m%d_%H%M%S')}.shp"
     gdf.to_file(output_file)
-    
-    geojson_outputdir = "01_Data/02_Geojsons"
+
+    geojson_outputdir = "./01_Data/01_Prince_Ruport_Area/02_Geojsons"
     if not os.path.exists(gdf_outputdir): os.makedirs(gdf_outputdir)
     with open(f"{geojson_outputdir}/{fecha_actual.strftime('%Y%m%d_%H%M%S')}.geojson" , 'w') as file:
         file.write(gdf.to_json())
