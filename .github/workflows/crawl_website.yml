@@ -1,17 +1,17 @@
-name: Ejecutar script cada 20 minutos
+name: Consulta de posiciones de embarcaciones
 
 on:
-  # Ejecutar cada 20 minutos
+  # Ejecutar cada 10 minutos
   schedule:
     - cron: '*/10 * * * *'
 
-  # Ejecutar en push events
-  push:
-    branches: [ main ]
+  # # Ejecutar en push events
+  # push:
+  #   branches: [ main ]
 
-  # Ejecutar en pull request events
-  pull_request:
-    types: [opened, synchronize]
+  # # Ejecutar en pull request events
+  # pull_request:
+  #   types: [opened, synchronize]
 
 jobs:
   ejecutar-script:
