@@ -19,9 +19,8 @@ def descargar_procesar_convertir(url_list):
         respuesta = requests.get(url, headers=headers)
         # Verificar si la solicitud fue exitosa
         if respuesta.status_code == 200:
-            datos_json = respuesta.json()
-               
-                   
+            datos_json = respuesta.json()      
+
             # Procesar JSON
             datos_filtrados = datos_json['data']['rows']
             for fila in datos_filtrados:
