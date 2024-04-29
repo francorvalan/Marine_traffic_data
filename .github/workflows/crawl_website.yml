@@ -1,6 +1,13 @@
 name: Consulta de posiciones de embarcaciones
 
+
+
 on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [ "master" ]
   # Ejecutar cada 10 minutos
   schedule:
     - cron: '*/10 * * * *'
