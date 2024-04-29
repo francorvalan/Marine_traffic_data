@@ -9,7 +9,7 @@ from shapely.geometry import Point
 def descargar_procesar_convertir(url_list):
     # Descargar datos web
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'}
-    
+
     fecha_actual = datetime.now()
 
     dfs = pd.DataFrame()
@@ -20,7 +20,8 @@ def descargar_procesar_convertir(url_list):
         # Verificar si la solicitud fue exitosa
         if respuesta.status_code == 200:
             datos_json = respuesta.json()
-                  
+               
+                   
             # Procesar JSON
             datos_filtrados = datos_json['data']['rows']
             for fila in datos_filtrados:
