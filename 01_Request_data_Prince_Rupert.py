@@ -15,8 +15,10 @@ def descargar_procesar_convertir(url_list):
     #datos_filtrados_list = []
     fecha_actual = datetime.now()
     #print('')
+    dfs = pd.DataFrame()
     for url in url_list:
-
+        
+        df = pd.DataFrame()
         respuesta = requests.get(url, headers=headers)
         # Verificar si la solicitud fue exitosa
         if respuesta.status_code == 200:
@@ -36,12 +38,12 @@ def descargar_procesar_convertir(url_list):
                 fila['fecha_consulta'] = str(fecha_actual.strftime('%Y%m%d_%H%M%S'))
             
             df =pd.DataFrame(datos_filtrados)
-        # 
-        if url ==url_list[0] and respuesta.status_code == 200:
-            dfs = df.copy()
-
-        else:
-            dfs = pd.concat([dfs,df])
+        #
+         
+        # if not 'dfs' in locals() or 'dfs' in globals():
+        #     dfs = df.copy()
+        # else:
+        dfs = pd.concat([dfs,df])
     # Convertir a DataFrame 
     #df = dfs.DataFrame(datos_filtrados_list)
 
