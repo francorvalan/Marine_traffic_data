@@ -42,7 +42,8 @@ jobs:
 
     - name: Ejecutar script Python
       run: |
-        python Download_data.py
+        #python Download_data.py
+        python 01_Request_data_Prince_Rupert.py
 
     - name:  Commit de los cambios en el repositorio
       run: |  
