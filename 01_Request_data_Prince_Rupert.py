@@ -48,12 +48,21 @@ def descargar_procesar_convertir(url_list):
     #return gdf
 
 urls = ['https://www.marinetraffic.com/getData/get_data_json_4/z:11/X:141/Y:327/station:0',
-    'https://www.marinetraffic.com/getData/get_data_json_4/z:11/X:141/Y:326/station:0',
-    'https://www.marinetraffic.com/getData/get_data_json_4/z:11/X:140/Y:327/station:0',
-    'https://www.marinetraffic.com/getData/get_data_json_4/z:11/X:142/Y:327/station:0',
-    'https://www.marinetraffic.com/getData/get_data_json_4/z:11/X:141/Y:328/station:0',
-    'https://www.marinetraffic.com/getData/get_data_json_4/z:11/X:140/Y:326/station:0',
-    'https://www.marinetraffic.com/getData/get_data_json_4/z:11/X:142/Y:326/station:0',
-    'https://www.marinetraffic.com/getData/get_data_json_4/z:11/X:140/Y:328/station:0',
-    'https://www.marinetraffic.com/getData/get_data_json_4/z:11/X:142/Y:328/station:0']
+    'https://www.marinetraffic.com/getData/get_data_json_4/z:11/X:141/Y:326/station:0'
+
+    #'https://www.marinetraffic.com/getData/get_data_json_4/z:11/X:140/Y:327/station:0',
+
+    #'https://www.marinetraffic.com/getData/get_data_json_4/z:11/X:142/Y:327/station:0',
+
+    #'https://www.marinetraffic.com/getData#/get_data_json_4/z:11/X:141/Y:328/station:0',
+
+    #'https://www.marinetraffic.com/getData/get_data_json_4/z:11/X:140/Y:326/station:0',
+
+    #'https://www.marinetraffic.com/getData/get_data_json_4/z:11/X:142/Y:326/station:0',
+
+    #'https://www.marinetraffic.com/getData/get_data_json_4/z:11/X:140/Y:328/station:0',
+
+    #'https://www.marinetraffic.com/getData/get_data_json_4/z:11/X:142/Y:328/station:0'
+
+]
 gdf = descargar_procesar_convertir(urls)
