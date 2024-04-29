@@ -36,7 +36,7 @@ def descargar_procesar_convertir(url_list):
                 fila['fecha_consulta'] = str(fecha_actual.strftime('%Y%m%d_%H%M%S'))
             #datos_filtrados_list.extend(datos_filtrados)
             df =pd.DataFrame(datos_filtrados)
-            
+        # 
         if url ==url_list[0]:
             dfs = df.copy()
 
