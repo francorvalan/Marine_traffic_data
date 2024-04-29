@@ -41,4 +41,9 @@ def guardar_como_json(url):
 
 if __name__ == "__main__":
     url = "https://www.marinetraffic.com/getData/get_data_json_4/z:7/X:21/Y:38/station:0"
+    # url rupertport
+    # https://www.marinetraffic.com/getData/get_data_json_4/z:9/X:34/Y:81/station:0
+    # https://www.marinetraffic.com/getData/get_data_json_4/z:9/X:35/Y:81/station:0
+    # https://www.marinetraffic.com/getData/get_data_json_4/z:9/X:34/Y:82/station:0 
+    # https://www.marinetraffic.com/getData/get_data_json_4/z:9/X:35/Y:82/station:0
     guardar_como_json(url)
