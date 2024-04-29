@@ -10,7 +10,7 @@ def descargar_procesar_convertir(url_list):
     # Descargar datos web
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'}
     # Lista para almacenar los DataFrames de cada URL
-    #dfs = pd.DataFrame()
+
     # Lista para almacenar los datos filtrados de cada URL
     #datos_filtrados_list = []
     fecha_actual = datetime.now()
@@ -34,10 +34,10 @@ def descargar_procesar_convertir(url_list):
             # Agregar la fecha a cada fila en datos_filtrados
             for fila in datos_filtrados:
                 fila['fecha_consulta'] = str(fecha_actual.strftime('%Y%m%d_%H%M%S'))
-            #datos_filtrados_list.extend(datos_filtrados)
+            
             df =pd.DataFrame(datos_filtrados)
         # 
-        if url ==url_list[0]:
+        if url ==url_list[0] and respuesta.status_code == 200:
             dfs = df.copy()
 
         else:
