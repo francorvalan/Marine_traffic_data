@@ -7,15 +7,14 @@ import geopandas as gpd
 from shapely.geometry import Point
 
 def descargar_procesar_convertir(url_list):
-    output_dir = "01_Request_data/01_Prince_Ruport_Area"
-    if not os.path.exists(output_dir): os.makedirs(output_dir)
     # Descargar datos web
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'}
     # Lista para almacenar los DataFrames de cada URL
-    dfs = []
+    #dfs = pd.DataFrame()
     # Lista para almacenar los datos filtrados de cada URL
-    datos_filtrados_list = []
+    #datos_filtrados_list = []
     fecha_actual = datetime.now()
+    #print('')
     for url in url_list:
 
         respuesta = requests.get(url, headers=headers)
@@ -30,39 +29,52 @@ def descargar_procesar_convertir(url_list):
                 for clave, valor in fila.items():
                     if valor is None:
                         fila[clave] = "_"
-
-            
+            print(' ')
+            #print(len(df.shape[0]))
             # Agregar la fecha a cada fila en datos_filtrados
             for fila in datos_filtrados:
                 fila['fecha_consulta'] = str(fecha_actual.strftime('%Y%m%d_%H%M%S'))
-            datos_filtrados_list.extend(datos_filtrados)
+            #datos_filtrados_list.extend(datos_filtrados)
+            df =pd.DataFrame(datos_filtrados)
+            
+        if url ==url_list[0]:
+            dfs = df.copy()
+
+        else:
+            dfs = pd.concat([dfs,df])
     # Convertir a DataFrame 
-    df = pd.DataFrame(datos_filtrados_list)
+    #df = dfs.DataFrame(datos_filtrados_list)
 
     # Convertir a GeoDataFrame
-    geometry = [Point(lon, lat) for lon, lat in zip(df['LON'], df['LAT'])]
-    gdf = gpd.GeoDataFrame(df, geometry=geometry, crs="EPSG:4326")
+    geometry = [Point(lon, lat) for lon, lat in zip(dfs['LON'], dfs['LAT'])]
+    gdf = gpd.GeoDataFrame(dfs, geometry=geometry, crs="EPSG:4326")
     # Escribir el GeoDataFrame en un archivo con nombre dependiente de la fecha
-    output_file = f"{output_dir}/{fecha_actual.strftime('%Y%m%d_%H%M%S')}.shp"
+    output_file = f"{fecha_actual.strftime('%Y%m%d_%H%M%S')}.shp"
     gdf.to_file(output_file)
+    
+    with open(f"{fecha_actual.strftime('%Y%m%d_%H%M%S')}.geojson" , 'w') as file:
+        file.write(gdf.to_json())
     #return gdf
 
-urls = ['https://www.marinetraffic.com/getData/get_data_json_4/z:11/X:141/Y:327/station:0',
-    'https://www.marinetraffic.com/getData/get_data_json_4/z:11/X:141/Y:326/station:0'
+urls = [
+    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1129/Y:2618/station:0',
+    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1129/Y:2617/station:0',
+    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1128/Y:2618/station:0',
+    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1130/Y:2618/station:0',
+    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1129/Y:2619/station:0',
+    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1128/Y:2617/station:0',
+    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1130/Y:2617/station:0',
+    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1128/Y:2619/station:0',
+    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1130/Y:2619/station:0',
+    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1129/Y:2621/station:0',
+    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1129/Y:2620/station:0',
+    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1128/Y:2621/station:0',
+    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1130/Y:2621/station:0',
+    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1129/Y:2622/station:0',
+    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1128/Y:2620/station:0',
+    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1130/Y:2620/station:0',
+    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1128/Y:2622/station:0',
+    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1130/Y:2622/station:0'
+    ]
 
-    #'https://www.marinetraffic.com/getData/get_data_json_4/z:11/X:140/Y:327/station:0',
-
-    #'https://www.marinetraffic.com/getData/get_data_json_4/z:11/X:142/Y:327/station:0',
-
-    #'https://www.marinetraffic.com/getData#/get_data_json_4/z:11/X:141/Y:328/station:0',
-
-    #'https://www.marinetraffic.com/getData/get_data_json_4/z:11/X:140/Y:326/station:0',
-
-    #'https://www.marinetraffic.com/getData/get_data_json_4/z:11/X:142/Y:326/station:0',
-
-    #'https://www.marinetraffic.com/getData/get_data_json_4/z:11/X:140/Y:328/station:0',
-
-    #'https://www.marinetraffic.com/getData/get_data_json_4/z:11/X:142/Y:328/station:0'
-
-]
-gdf = descargar_procesar_convertir(urls)
+descargar_procesar_convertir(urls)
