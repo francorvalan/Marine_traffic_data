@@ -82,6 +82,8 @@ urls = [
     'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1128/Y:2619/station:0',
     'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1128/Y:2618/station:0',
     'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1128/Y:2617/station:0',
+
+'https://www.marinetraffic.com/getData/get_data_json_4/z:7/X:21/Y:38/station:0',
     'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1128/Y:2621/station:0',
     'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1129/Y:2618/station:0',
     'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1129/Y:2617/station:0',
