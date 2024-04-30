@@ -11,7 +11,7 @@ def descargar_procesar_convertir(url_list):
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'}
 
     fecha_actual = datetime.now()
-    counter += 0
+    counter = 0
     dfs = pd.DataFrame()
     for url in url_list:
         
