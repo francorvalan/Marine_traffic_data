@@ -48,25 +48,13 @@ def descargar_procesar_convertir(url_list):
         # Escribir el GeoDataFrame en un archivo con nombre dependiente de la fecha
         gdf_outputdir = "./01_Data/01_Prince_Ruport_Area/01_Shapefiles"
         if not os.path.exists(gdf_outputdir): os.makedirs(gdf_outputdir)
-        output_file = f"{gdf_outputdir}/{fecha_actual.strftime('%Y%m%d_%H%M%S')}.shp"
+        output_file = f"{gdf_outputdir}/{fecha_actual.strftime('%Y%m%d_%H%M%S')}_{counter}-18.shp"
         gdf.to_file(output_file)
         
         geojson_outputdir = "./01_Data/01_Prince_Ruport_Area/02_Geojsons"
         if not os.path.exists(geojson_outputdir): os.makedirs(geojson_outputdir)
-        with open(f"{geojson_outputdir}/{fecha_actual.strftime('%Y%m%d_%H%M%S')}.geojson" , 'w') as file:
+        with open(f"{geojson_outputdir}/{fecha_actual.strftime('%Y%m%d_%H%M%S')}_{counter}-18.geojson" , 'w') as file:
             file.write(gdf.to_json())
-urls = [
-        'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1128/Y:2622/station:0',
-    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1128/Y:2620/station:0',
-    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1128/Y:2619/station:0',
-    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1128/Y:2618/station:0',
-    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1128/Y:2617/station:0',
-    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1128/Y:2621/station:0',
-    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1129/Y:2618/station:0',
-    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1129/Y:2617/station:0',
-    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1129/Y:2621/station:0'
-    ]
-
 # urls = [
 #         'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1128/Y:2622/station:0',
 #     'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1128/Y:2620/station:0',
@@ -76,15 +64,27 @@ urls = [
 #     'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1128/Y:2621/station:0',
 #     'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1129/Y:2618/station:0',
 #     'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1129/Y:2617/station:0',
-#     'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1129/Y:2621/station:0',
-#     'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1129/Y:2620/station:0',
-#     'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1129/Y:2619/station:0',
-#     'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1129/Y:2622/station:0',
-#     'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1130/Y:2617/station:0',
-#     'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1130/Y:2619/station:0',
-#     'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1130/Y:2621/station:0',
-#     'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1130/Y:2620/station:0',
-#     'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1130/Y:2622/station:0',
-#     'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1130/Y:2618/station:0'
+#     'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1129/Y:2621/station:0'
 #     ]
+
+urls = [
+        'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1128/Y:2622/station:0',
+    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1128/Y:2620/station:0',
+    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1128/Y:2619/station:0',
+    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1128/Y:2618/station:0',
+    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1128/Y:2617/station:0',
+    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1128/Y:2621/station:0',
+    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1129/Y:2618/station:0',
+    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1129/Y:2617/station:0',
+    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1129/Y:2621/station:0',
+    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1129/Y:2620/station:0',
+    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1129/Y:2619/station:0',
+    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1129/Y:2622/station:0',
+    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1130/Y:2617/station:0',
+    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1130/Y:2619/station:0',
+    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1130/Y:2621/station:0',
+    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1130/Y:2620/station:0',
+    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1130/Y:2622/station:0',
+    'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1130/Y:2618/station:0'
+    ]
 descargar_procesar_convertir(urls)
