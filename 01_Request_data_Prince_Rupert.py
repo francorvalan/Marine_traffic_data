@@ -53,7 +53,7 @@ def descargar_procesar_convertir(url_list):
     if not os.path.exists(geojson_outputdir): os.makedirs(geojson_outputdir)
     with open(f"{geojson_outputdir}/{fecha_actual.strftime('%Y%m%d_%H%M%S')}.geojson" , 'w') as file:
         file.write(gdf.to_json())
-        urls = [
+urls = [
         'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1128/Y:2622/station:0',
     'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1128/Y:2620/station:0',
     'https://www.marinetraffic.com/getData/get_data_json_4/z:14/X:1128/Y:2619/station:0',
